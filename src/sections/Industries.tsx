@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Zap, AlertTriangle, Factory, Shield, GraduationCap, ArrowRight, Landmark, Users } from 'lucide-react';
+import { Zap, AlertTriangle, Factory, Shield, GraduationCap, ArrowRight, Landmark } from 'lucide-react';
 
 const industries = [
   {
