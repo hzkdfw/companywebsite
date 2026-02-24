@@ -1,11 +1,18 @@
 {
   "buildCommand": "npm run build:vercel",
-  "outputDirectory": "dist",
+ "outputDirectory": "dist",
   "framework": "vite",
-  "installCommand": "npm install",
+ "installCommand": "npm install",
   "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
+    { "source": "/(*)", "destination": "/" }
   ],
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "headers": {
+    "Access-Control-Allow-Origin": "*",
+    "Cache-Control": "no-cache",
+    "Lock": {
+      "control": "no-store"
+    }
+  }
 }
