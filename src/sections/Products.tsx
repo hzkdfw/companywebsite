@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { ArrowRight, Cpu, Plane, Bot, Network } from 'lucide-react';
+import { ArrowRight, Cpu, Plane, Bot, Network, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const products = [
@@ -8,7 +8,7 @@ const products = [
     name: '智能机器狗',
     subtitle: 'KD-Robot X1',
     description: '四足仿生机器人，具备全地形适应能力，搭载AI视觉系统，适用于巡检、侦查、救援等场景。',
-    features: ['全地形适应', 'AI视觉识别', '4小时续航', 'IP66防护'],
+    features: ['全地形适应', 'AI视觉识别', '4小时续航', 'IP67防护'],
     image: '/images/product-robot-dog.jpg',
     icon: Bot,
   },
@@ -23,6 +23,15 @@ const products = [
   },
   {
     id: 3,
+    name: '核生化智能防护',
+    subtitle: 'KD-NBC System',
+    description: '核生化防护监测控制系统，融合空中无人机、地面机器狗、固定防护设备，形成立体防护网络，实现对辐射、化学、生物有害物质的实时监测、预警与数据采集分析。',
+    features: ['立体防护', '实时监测', '智能预警', '污染洗消'],
+    image: '/images/product-3d-defense.jpg',
+    icon: Shield,
+  },
+  {
+    id: 4,
     name: '系统集成方案',
     subtitle: 'KD-System',
     description: '提供端到端的智能防务系统集成服务，包括硬件部署、软件开发、数据分析等全套解决方案。',
@@ -107,16 +116,16 @@ export default function Products() {
               >
                 <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                   {/* Image */}
-                  <div className="relative group">
+                  <div className="relative group img-zoom-container">
                     <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
                       <img
                         src={product.image}
                         alt={product.name}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
                     </div>
                     {/* Floating Badge */}
-                    <div className="absolute -bottom-4 -right-4 bg-white rounded-xl shadow-xl p-4 border border-gray-100">
+                    <div className="absolute -bottom-4 -right-4 bg-white rounded-xl shadow-xl p-4 border border-gray-100 glow-blue">
                       <div className="text-sm text-gray-500">产品型号</div>
                       <div className="text-xl font-bold text-blue-600">{product.subtitle}</div>
                     </div>
@@ -138,7 +147,7 @@ export default function Products() {
                       {product.features.map((feature, idx) => (
                         <div
                           key={idx}
-                          className="flex items-center gap-3 p-4 bg-gray-50 rounded-xl"
+                          className="feature-item p-4 bg-gray-50 rounded-xl hover:bg-blue-50"
                         >
                           <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                             <div className="w-3 h-3 bg-blue-600 rounded-full" />

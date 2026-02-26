@@ -15,10 +15,20 @@ function App() {
       <Navbar />
       <main>
         <Hero />
+        {/* Section Divider */}
+        <div className="section-divider" />
         <Products />
+        {/* Section Divider */}
+        <div className="section-divider" />
         <Industries />
+        {/* Section Divider */}
+        <div className="section-divider" />
         <About />
+        {/* Section Divider */}
+        <div className="section-divider" />
         <News />
+        {/* Section Divider */}
+        <div className="section-divider" />
         <Contact />
       </main>
       <Footer />

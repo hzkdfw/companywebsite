@@ -83,31 +83,32 @@ export default function News() {
             {newsItems.map((news, index) => (
               <article
                 key={news.id}
-                className={`group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 ${
+                className={`group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 card-hover ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}
-                style={{ transitionDelay: `${index * 100}ms` }}
+                style={{ transitionDelay: `${index * 150}ms` }}
               >
                 {/* Image */}
-                <div className="aspect-[16/10] overflow-hidden">
+                <div className="aspect-[16/10] overflow-hidden relative">
                   <img
                     src={news.image}
                     alt={news.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-blue-600">
+                      {news.category}
+                    </span>
+                  </div>
                 </div>
 
                 {/* Content */}
                 <div className="p-6">
                   {/* Meta */}
-                  <div className="flex items-center gap-4 mb-3">
-                    <span className="px-3 py-1 bg-blue-50 text-blue-600 text-xs font-medium rounded-full">
-                      {news.category}
-                    </span>
-                    <div className="flex items-center gap-1 text-gray-400 text-sm">
-                      <Calendar className="w-4 h-4" />
-                      <span>{news.date}</span>
-                    </div>
+                  <div className="flex items-center gap-2 text-gray-400 text-sm mb-3">
+                    <Calendar className="w-4 h-4" />
+                    <span>{news.date}</span>
                   </div>
 
                   {/* Title */}

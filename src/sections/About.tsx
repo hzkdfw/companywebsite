@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Target, Eye, Award, Users, TrendingUp, Building2 } from 'lucide-react';
+import { Target, Eye, Award, Users, TrendingUp, Building2, FileText, ExternalLink } from 'lucide-react';
 
 const stats = [
   { value: '2024', label: '成立年份', icon: Building2 },
@@ -19,6 +19,18 @@ const values = [
     description: '以客户需求为导向，提供高性能、高可靠性的智能防务装备与系统解决方案。',
     icon: Target,
   },
+];
+
+const patents = [
+  { title: '机器人运动智能调节系统', type: '软件著作权', file: '/机器人运动智能调节系统.pdf' },
+  { title: '核生化防护监测控制系统', type: '软件著作权', file: '/（凯盾防务）核生化防护监测控制系统-软著证书.pdf' },
+  { title: '核生化防护监测预警管理平台', type: '软件著作权', file: '/（凯盾防务）核生化防护监测预警管理平台-软著证书.pdf' },
+  { title: '核生化数据在线分析系统', type: '软件著作权', file: '/（凯盾防务）核生化数据在线分析系统-软著证书.pdf' },
+  { title: '核生化数据智能采集系统', type: '软件著作权', file: '/（凯盾防务）核生化数据智能采集系统-软著证书.pdf' },
+  { title: '无人机多任务点路径智能规划系统', type: '软件著作权', file: '/（凯盾防务）无人机多任务点路径智能规划系统-软著证书.pdf' },
+  { title: '无人机机械臂自动化作业系统', type: '软件著作权', file: '/（凯盾防务）无人机机械臂自动化作业系统-软著证书.pdf' },
+  { title: '无人机数据收集与分析系统', type: '软件著作权', file: '/无人机数据收集与分析系统.pdf' },
+  { title: '智能机器人协同作业平台', type: '软件著作权', file: '/智能机器人协同作业平台.pdf' },
 ];
 
 export default function About() {
@@ -149,6 +161,67 @@ export default function About() {
                   ))}
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Certifications */}
+          <div className={`mt-16 transition-all duration-700 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                资质证书
+              </h3>
+              <p className="text-gray-600">公司已获得多项行业资质认证与专利证书</p>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* Radiation Safety License */}
+              <div className="group bg-gradient-to-br from-amber-50 to-white rounded-2xl p-6 border border-amber-200 hover:shadow-xl transition-all duration-300 card-hover">
+                <div className="flex items-start gap-4">
+                  <div className="w-14 h-14 bg-gradient-to-br from-amber-400 to-orange-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <FileText className="w-7 h-7 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-bold text-gray-900 mb-2">辐射安全许可证</h4>
+                    <p className="text-sm text-gray-600 mb-4">
+                      依法取得辐射安全许可资质，确保业务合规运营
+                    </p>
+                    <a
+                      href="/辐射安全许可证正本签章.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-amber-600 hover:text-amber-700 font-medium text-sm group-hover:gap-3 transition-all"
+                    >
+                      查看证书
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Patents */}
+              {patents.map((patent, index) => (
+                <div key={index} className="group bg-gradient-to-br from-blue-50 to-white rounded-2xl p-6 border border-blue-200 hover:shadow-xl transition-all duration-300 card-hover">
+                  <div className="flex items-start gap-4">
+                    <div className={`w-14 h-14 bg-gradient-to-br ${index % 3 === 0 ? 'from-blue-500 to-cyan-500' : index % 3 === 1 ? 'from-violet-500 to-purple-500' : 'from-emerald-500 to-teal-500'} rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                      <Award className="w-7 h-7 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-bold text-gray-900 mb-2">{patent.title}</h4>
+                      <p className="text-sm text-gray-600 mb-4">
+                        {patent.type}
+                      </p>
+                      <a
+                        href={patent.file}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium text-sm group-hover:gap-3 transition-all"
+                      >
+                        查看证书
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
