@@ -1,6 +1,6 @@
 {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
-  ],
-  "cleanUrls": true
+  "buildCommand": "npm run build:vercel",
+ "outputDirectory": "dist",
+  "framework": "vite",
+ "installCommand": "npm install"
 }
