@@ -1,2 +1,5 @@
-/* * for Cloudflare Pages */
-* /*                        index.html
+# 百度验证文件 - 不重定向
+/baidu_verify_codeva-4vAvYgxL5m.html /baidu_verify_codeva-4vAvYgxL5m.html 200
+
+# Cloudflare Pages SPA 重定向
+* /index.html 200
