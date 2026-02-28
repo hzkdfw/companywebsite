@@ -1,33 +1,36 @@
 import { Phone, Mail, MapPin } from 'lucide-react';
+import { useLanguage } from '@/i18n';
 
 const footerLinks = {
   products: [
-    { name: '智能机器狗', href: '#products' },
-    { name: '工业无人机', href: '#products' },
-    { name: '系统集成', href: '#products' },
-    { name: '定制开发', href: '#contact' },
+    { name: '智能机器狗', nameEn: 'Robot Dog', href: '#products' },
+    { name: '工业无人机', nameEn: 'Industrial UAV', href: '#products' },
+    { name: '系统集成', nameEn: 'System Integration', href: '#products' },
+    { name: '定制开发', nameEn: 'Custom Development', href: '#contact' },
   ],
   industries: [
-    { name: '电力巡检', href: '#industries' },
-    { name: '应急救援', href: '#industries' },
-    { name: '工业检测', href: '#industries' },
-    { name: '安防监控', href: '#industries' },
+    { name: '电力巡检', nameEn: 'Power Inspection', href: '#industries' },
+    { name: '应急救援', nameEn: 'Emergency Rescue', href: '#industries' },
+    { name: '工业检测', nameEn: 'Industrial Inspection', href: '#industries' },
+    { name: '安防监控', nameEn: 'Security Monitoring', href: '#industries' },
   ],
   company: [
-    { name: '关于我们', href: '#about' },
-    { name: '新闻资讯', href: '#news' },
-    { name: '加入我们', href: '#contact' },
-    { name: '联系方式', href: '#contact' },
+    { name: '关于我们', nameEn: 'About Us', href: '#about' },
+    { name: '新闻资讯', nameEn: 'News', href: '#news' },
+    { name: '加入我们', nameEn: 'Careers', href: '#contact' },
+    { name: '联系方式', nameEn: 'Contact', href: '#contact' },
   ],
   support: [
-    { name: '产品手册', href: '#' },
-    { name: '技术文档', href: '#' },
-    { name: '售后服务', href: '#contact' },
-    { name: '常见问题', href: '#' },
+    { name: '产品手册', nameEn: 'Product Manual', href: '#' },
+    { name: '技术文档', nameEn: 'Technical Docs', href: '#' },
+    { name: '售后服务', nameEn: 'After Sales', href: '#contact' },
+    { name: '常见问题', nameEn: 'FAQ', href: '#' },
   ],
 };
 
 export default function Footer() {
+  const { t, language } = useLanguage();
+
   const scrollToSection = (href: string) => {
     if (href.startsWith('#')) {
       const element = document.querySelector(href);
@@ -65,12 +68,14 @@ export default function Footer() {
                   />
                 </div>
                 <div>
-                  <div className="font-bold text-xl">凯盾防务</div>
+                  <div className="font-bold text-xl">{t.hero.title}</div>
                   <div className="text-gray-400 text-sm">KAIDUN DEFENSE</div>
                 </div>
               </div>
               <p className="text-gray-400 leading-relaxed mb-6 max-w-sm">
-                专注于智能防务装备研发与系统集成服务，为电力、应急、工业等领域提供专业的智能化解决方案。
+                {language === 'zh'
+                  ? '专注于智能防务装备研发与系统集成服务，为电力、应急、工业等领域提供专业的智能化解决方案。'
+                  : 'Specializing in intelligent defense equipment R&D and system integration services, providing professional intelligent solutions for power, emergency, industrial and other fields.'}
               </p>
               <div className="space-y-3">
                 <div className="flex items-center gap-3 text-gray-400">
@@ -83,16 +88,14 @@ export default function Footer() {
                 </div>
                 <div className="flex items-center gap-3 text-gray-400">
                   <MapPin className="w-5 h-5 text-blue-500" />
-                  <span>杭州市余杭区五常大道181号</span>
-                  <br />
-                  <span>华立总部大楼东910室</span>
+                  <span>{language === 'zh' ? '杭州市余杭区五常大道181号' : 'Hangzhou Yuhang District'}</span>
                 </div>
               </div>
             </div>
 
             {/* Products */}
             <div>
-              <h4 className="font-semibold text-lg mb-4">产品中心</h4>
+              <h4 className="font-semibold text-lg mb-4">{t.footer.products}</h4>
               <ul className="space-y-3">
                 {footerLinks.products.map((link) => (
                   <li key={link.name}>
@@ -104,7 +107,7 @@ export default function Footer() {
                       }}
                       className="text-gray-400 hover:text-white transition-colors"
                     >
-                      {link.name}
+                      {language === 'zh' ? link.name : link.nameEn}
                     </a>
                   </li>
                 ))}
@@ -113,7 +116,7 @@ export default function Footer() {
 
             {/* Industries */}
             <div>
-              <h4 className="font-semibold text-lg mb-4">行业应用</h4>
+              <h4 className="font-semibold text-lg mb-4">{t.footer.industries}</h4>
               <ul className="space-y-3">
                 {footerLinks.industries.map((link) => (
                   <li key={link.name}>
@@ -125,7 +128,7 @@ export default function Footer() {
                       }}
                       className="text-gray-400 hover:text-white transition-colors"
                     >
-                      {link.name}
+                      {language === 'zh' ? link.name : link.nameEn}
                     </a>
                   </li>
                 ))}
@@ -134,7 +137,7 @@ export default function Footer() {
 
             {/* Company */}
             <div>
-              <h4 className="font-semibold text-lg mb-4">关于我们</h4>
+              <h4 className="font-semibold text-lg mb-4">{t.footer.about}</h4>
               <ul className="space-y-3">
                 {footerLinks.company.map((link) => (
                   <li key={link.name}>
@@ -146,7 +149,7 @@ export default function Footer() {
                       }}
                       className="text-gray-400 hover:text-white transition-colors"
                     >
-                      {link.name}
+                      {language === 'zh' ? link.name : link.nameEn}
                     </a>
                   </li>
                 ))}
@@ -155,7 +158,7 @@ export default function Footer() {
 
             {/* Support */}
             <div>
-              <h4 className="font-semibold text-lg mb-4">服务支持</h4>
+              <h4 className="font-semibold text-lg mb-4">{language === 'zh' ? '服务支持' : 'Support'}</h4>
               <ul className="space-y-3">
                 {footerLinks.support.map((link) => (
                   <li key={link.name}>
@@ -169,7 +172,7 @@ export default function Footer() {
                       }}
                       className="text-gray-400 hover:text-white transition-colors"
                     >
-                      {link.name}
+                      {language === 'zh' ? link.name : link.nameEn}
                     </a>
                   </li>
                 ))}
@@ -184,12 +187,12 @@ export default function Footer() {
         <div className="w-full section-padding py-6">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="text-gray-500 text-sm text-center md:text-left">
-              © 2024 杭州凯盾防务科技有限公司 版权所有
+              {t.footer.copyright}
             </div>
             <div className="flex items-center gap-6 text-sm text-gray-500">
-              <a href="#" className="hover:text-white transition-colors">隐私政策</a>
-              <a href="#" className="hover:text-white transition-colors">使用条款</a>
-              <a href="#" className="hover:text-white transition-colors">网站地图</a>
+              <a href="#" className="hover:text-white transition-colors">{language === 'zh' ? '隐私政策' : 'Privacy Policy'}</a>
+              <a href="#" className="hover:text-white transition-colors">{language === 'zh' ? '使用条款' : 'Terms'}</a>
+              <a href="#" className="hover:text-white transition-colors">{language === 'zh' ? '网站地图' : 'Sitemap'}</a>
               <span>浙ICP备XXXXXXXX号</span>
             </div>
           </div>

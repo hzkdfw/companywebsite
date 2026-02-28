@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { ChevronRight, Play, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/i18n';
 
 const industries = [
   { name: '电力巡检', href: '#industries' },
@@ -11,21 +12,33 @@ const industries = [
   { name: '教育科研', href: '#industries' },
 ];
 
+const industriesEn = [
+  { name: 'Power Inspection', href: '#industries' },
+  { name: 'Emergency Rescue', href: '#industries' },
+  { name: 'Industrial Inspection', href: '#industries' },
+  { name: 'Defense Mobilization', href: '#industries' },
+  { name: 'Security Monitoring', href: '#industries' },
+  { name: 'Education & Research', href: '#industries' },
+];
+
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
+  const { t, language } = useLanguage();
+
+  const industriesList = language === 'zh' ? industries : industriesEn;
 
   useEffect(() => {
     setIsVisible(true);
     
     // Auto-rotate slides
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % industries.length);
+      setCurrentSlide((prev) => (prev + 1) % industriesList.length);
     }, 4000);
     
     return () => clearInterval(interval);
-  }, []);
+  }, [industriesList.length]);
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
@@ -60,18 +73,17 @@ export default function Hero() {
               <div className="space-y-4">
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
                   <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" />
-                  <span className="text-white/90 text-sm">智能防务解决方案提供商</span>
+                  <span className="text-white/90 text-sm">{t.hero.subtitle}</span>
                 </div>
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                  智能防务技术
+                  {language === 'zh' ? '智能防务技术' : 'Intelligent Defense Technology'}
                   <br />
                   <span className="text-gradient bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                    创新与应用引领者
+                    {language === 'zh' ? '创新与应用引领者' : 'Innovation & Application Leader'}
                   </span>
                 </h1>
                 <p className="text-lg sm:text-xl text-white/80 max-w-xl leading-relaxed">
-                  专注于系统集成、无人机、机器狗等智能防务装备的研发与应用，
-                  为电力、应急、工业等领域提供专业的智能化解决方案。
+                  {t.hero.description}
                 </p>
               </div>
 
@@ -82,7 +94,7 @@ export default function Hero() {
                   onClick={() => scrollToSection('#products')}
                   className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white border-0 px-8 py-6 text-lg group"
                 >
-                  了解产品
+                  {language === 'zh' ? '了解产品' : 'View Products'}
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
                 <Button
@@ -92,7 +104,7 @@ export default function Hero() {
                   className="border-white/30 text-white hover:bg-white/10 hover:text-white px-8 py-6 text-lg backdrop-blur-sm"
                 >
                   <Play className="mr-2 w-5 h-5" />
-                  观看视频
+                  {language === 'zh' ? '观看视频' : 'Watch Video'}
                 </Button>
               </div>
 
@@ -100,15 +112,15 @@ export default function Hero() {
               <div className="grid grid-cols-3 gap-6 pt-8 border-t border-white/20">
                 <div>
                   <div className="text-3xl sm:text-4xl font-bold text-white">50+</div>
-                  <div className="text-white/60 text-sm mt-1">行业客户</div>
+                  <div className="text-white/60 text-sm mt-1">{language === 'zh' ? '行业客户' : 'Industry Clients'}</div>
                 </div>
                 <div>
                   <div className="text-3xl sm:text-4xl font-bold text-white">100+</div>
-                  <div className="text-white/60 text-sm mt-1">项目案例</div>
+                  <div className="text-white/60 text-sm mt-1">{language === 'zh' ? '项目案例' : 'Projects'}</div>
                 </div>
                 <div>
                   <div className="text-3xl sm:text-4xl font-bold text-white">24/7</div>
-                  <div className="text-white/60 text-sm mt-1">技术支持</div>
+                  <div className="text-white/60 text-sm mt-1">{language === 'zh' ? '技术支持' : 'Tech Support'}</div>
                 </div>
               </div>
             </div>
@@ -118,9 +130,9 @@ export default function Hero() {
               <div className="relative">
                 {/* Main Card */}
                 <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-                  <h3 className="text-white text-xl font-semibold mb-4">应用领域</h3>
+                  <h3 className="text-white text-xl font-semibold mb-4">{language === 'zh' ? '应用领域' : 'Application Fields'}</h3>
                   <div className="space-y-3">
-                    {industries.map((industry, index) => (
+                    {industriesList.map((industry, index) => (
                       <a
                         key={industry.name}
                         href={industry.href}

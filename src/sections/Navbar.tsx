@@ -1,19 +1,22 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
-const navItems = [
-  { label: '首页', href: '#hero' },
-  { label: '产品中心', href: '#products' },
-  { label: '行业应用', href: '#industries' },
-  { label: '关于我们', href: '#about' },
-  { label: '新闻资讯', href: '#news' },
-  { label: '联系我们', href: '#contact' },
-];
+import { useLanguage } from '@/i18n';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
+
+  const navItems = [
+    { label: t.nav.home, href: '#hero' },
+    { label: t.nav.products, href: '#products' },
+    { label: t.nav.industries, href: '#industries' },
+    { label: t.nav.about, href: '#about' },
+    { label: t.nav.news, href: '#news' },
+    { label: t.nav.contact, href: '#contact' },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,7 +72,7 @@ export default function Navbar() {
               />
             </div>
             <div className={`hidden sm:block ${isScrolled ? 'text-gray-900' : 'text-white'}`}>
-              <div className="font-bold text-lg leading-tight">凯盾防务</div>
+              <div className="font-bold text-lg leading-tight">{t.hero.title}</div>
               <div className="text-xs opacity-80">KAIDUN DEFENSE</div>
             </div>
           </a>
@@ -95,6 +98,7 @@ export default function Navbar() {
 
           {/* Right Section */}
           <div className="flex items-center gap-3">
+            <LanguageSwitcher />
             <a
               href="tel:13905819537"
               className={`hidden md:flex items-center gap-2 text-sm font-medium ${
@@ -102,13 +106,13 @@ export default function Navbar() {
               }`}
             >
               <Phone className="w-4 h-4" />
-              <span>13905819537</span>
+              <span>{t.nav.phone}</span>
             </a>
             <Button
               onClick={() => scrollToSection('#contact')}
               className="hidden sm:flex bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white border-0"
             >
-              我要订购
+              {t.nav.order}
             </Button>
 
             {/* Mobile Menu Button */}
@@ -149,7 +153,7 @@ export default function Navbar() {
               onClick={() => scrollToSection('#contact')}
               className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white"
             >
-              我要订购
+              {t.nav.order}
             </Button>
           </div>
         </div>
