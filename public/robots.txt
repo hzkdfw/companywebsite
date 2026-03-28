@@ -1,0 +1,10 @@
+# Robots.txt for keeshield.com
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://keeshield.com/sitemap.xml
+
+# Disallow admin or private paths (if any)
+Disallow: /admin/
+Disallow: /private/
