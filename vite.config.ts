@@ -14,14 +14,6 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
-    // 启用代码压缩
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,  // 生产环境移除 console
-        drop_debugger: true,
-      },
-    },
     // 代码分割
     rollupOptions: {
       output: {
