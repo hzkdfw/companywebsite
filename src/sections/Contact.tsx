@@ -130,24 +130,25 @@ export default function Contact() {
               </div>
 
               {/* Map */}
-              <div className="aspect-video bg-gray-100 rounded-2xl overflow-hidden relative group">
+              <div className="aspect-video bg-gray-100 rounded-2xl overflow-hidden relative">
+                <iframe
+                  title="公司地址地图"
+                  width="100%"
+                  height="100%"
+                  frameBorder="0"
+                  scrolling="no"
+                  src="https://apis.map.qq.com/ws/staticmap/v2/?center=30.289547,120.034789&zoom=15&size=600*300&maptype=roadmap&markers=size:large|color:red|label:K|30.289547,120.034789&key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77"
+                  style={{ border: 0 }}
+                  loading="lazy"
+                />
                 <a 
                   href="https://uri.amap.com/marker?position=120.034789,30.289547&name=华立总部大楼&coordinate=gaode"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full h-full"
+                  className="absolute bottom-3 right-3 bg-white/90 hover:bg-white px-3 py-1.5 rounded-lg text-sm font-medium text-blue-600 shadow-sm transition-colors flex items-center gap-1"
                 >
-                  <img 
-                    src="https://restapi.amap.com/v3/staticmap?location=120.034789,30.289547&zoom=15&size=750*300&markers=mid,,A:120.034789,30.289547&key=26b9015da88e689997cfa4db8374a7b1"
-                    alt="公司地址地图"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
-                    <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 px-4 py-2 rounded-lg text-sm font-medium text-gray-700">
-                      {language === 'zh' ? '点击导航' : 'Click to navigate'}
-                    </span>
-                  </div>
+                  <MapPin className="w-4 h-4" />
+                  {language === 'zh' ? '导航' : 'Navigate'}
                 </a>
               </div>
             </div>
