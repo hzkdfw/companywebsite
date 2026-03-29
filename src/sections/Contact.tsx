@@ -130,37 +130,39 @@ export default function Contact() {
               </div>
 
               {/* Map */}
-              <div className="rounded-2xl overflow-hidden">
-                <div className="aspect-video bg-gray-100 relative">
-                  <iframe
-                    title="公司地址地图"
-                    width="100%"
-                    height="100%"
-                    frameBorder="0"
-                    scrolling="no"
-                    src="https://apis.map.qq.com/ws/staticmap/v2/?center=30.289547,120.034789&zoom=15&size=600*300&maptype=roadmap&markers=size:large|color:red|label:K|30.289547,120.034789&key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77"
-                    style={{ border: 0 }}
-                    loading="lazy"
-                  />
-                  <a 
-                    href="https://uri.amap.com/marker?position=120.034789,30.289547&name=华立总部大楼&coordinate=gaode"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="absolute bottom-3 right-3 bg-white/90 hover:bg-white px-3 py-1.5 rounded-lg text-sm font-medium text-blue-600 shadow-sm transition-colors flex items-center gap-1"
-                  >
-                    <MapPin className="w-4 h-4" />
-                    {language === 'zh' ? '导航' : 'Navigate'}
-                  </a>
-                </div>
-                <div className="flex items-center gap-3 p-4 bg-white border border-gray-100 rounded-b-2xl">
-                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-5 h-5 text-blue-600" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-gray-900">{language === 'zh' ? '杭州市余杭区五常大道181号' : '181 Wuchang Avenue, Yuhang District, Hangzhou'}</p>
-                    <p className="text-sm text-gray-500">{language === 'zh' ? '华立总部大楼东910室' : 'Room 910, East Building, Huali Headquarters'}</p>
+              <div className="aspect-video bg-gray-100 rounded-2xl overflow-hidden relative">
+                <iframe
+                  title="公司地址地图"
+                  width="100%"
+                  height="100%"
+                  frameBorder="0"
+                  scrolling="no"
+                  src="https://apis.map.qq.com/ws/staticmap/v2/?center=30.289547,120.034789&zoom=15&size=600*300&maptype=roadmap&markers=size:large|color:red|label:K|30.289547,120.034789&key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77"
+                  style={{ border: 0 }}
+                  loading="lazy"
+                />
+                {/* 地址信息叠加层 */}
+                <div className="absolute inset-0 flex items-end justify-center pb-4 pointer-events-none">
+                  <div className="bg-white/95 backdrop-blur-sm rounded-xl px-5 py-3 shadow-lg pointer-events-auto">
+                    <div className="flex items-center gap-3">
+                      <MapPin className="w-6 h-6 text-blue-600 flex-shrink-0" />
+                      <div>
+                        <p className="font-semibold text-gray-900 text-sm">{language === 'zh' ? '杭州市余杭区五常大道181号' : '181 Wuchang Avenue, Yuhang District'}</p>
+                        <p className="text-xs text-gray-500">{language === 'zh' ? '华立总部大楼东910室' : 'Room 910, East Building, Huali Headquarters'}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
+                {/* 导航按钮 */}
+                <a 
+                  href="https://uri.amap.com/marker?position=120.034789,30.289547&name=华立总部大楼&coordinate=gaode"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute top-3 right-3 bg-white/90 hover:bg-white px-3 py-1.5 rounded-lg text-sm font-medium text-blue-600 shadow-sm transition-colors flex items-center gap-1"
+                >
+                  <MapPin className="w-4 h-4" />
+                  {language === 'zh' ? '导航' : 'Navigate'}
+                </a>
               </div>
             </div>
 
