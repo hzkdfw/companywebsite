@@ -141,27 +141,19 @@ export default function Contact() {
                   style={{ border: 0 }}
                   loading="lazy"
                 />
-                {/* 地址信息叠加层 */}
-                <div className="absolute inset-0 flex items-end justify-center pb-4 pointer-events-none">
-                  <div className="bg-white/95 backdrop-blur-sm rounded-xl px-5 py-3 shadow-lg pointer-events-auto">
-                    <div className="flex items-center gap-3">
-                      <MapPin className="w-6 h-6 text-blue-600 flex-shrink-0" />
-                      <div>
-                        <p className="font-semibold text-gray-900 text-sm">{language === 'zh' ? '杭州市余杭区五常大道181号' : '181 Wuchang Avenue, Yuhang District'}</p>
-                        <p className="text-xs text-gray-500">{language === 'zh' ? '华立总部大楼东910室' : 'Room 910, East Building, Huali Headquarters'}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                {/* 导航按钮 */}
+                {/* 地址信息叠加层 - 居中 */}
                 <a 
                   href="https://uri.amap.com/marker?position=120.034789,30.289547&name=华立总部大楼&coordinate=gaode"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="absolute top-3 right-3 bg-white/90 hover:bg-white px-3 py-1.5 rounded-lg text-sm font-medium text-blue-600 shadow-sm transition-colors flex items-center gap-1"
+                  className="absolute inset-0 flex items-center justify-center"
                 >
-                  <MapPin className="w-4 h-4" />
-                  {language === 'zh' ? '导航' : 'Navigate'}
+                  <div className="text-center bg-white/95 backdrop-blur-sm rounded-xl px-5 py-4 shadow-lg">
+                    <p className="text-sm font-medium text-gray-900 mb-1">{language === 'zh' ? '杭州市余杭区五常大道181号' : '181 Wuchang Avenue, Yuhang District'}</p>
+                    <p className="text-xs text-gray-500 mb-3">{language === 'zh' ? '华立总部大楼东910室' : 'Room 910, East Building, Huali Headquarters'}</p>
+                    <MapPin className="w-8 h-8 text-blue-600 mx-auto" />
+                    <p className="text-sm font-semibold text-blue-600 mt-2">{language === 'zh' ? '导航' : 'Navigate'}</p>
+                  </div>
                 </a>
               </div>
             </div>
