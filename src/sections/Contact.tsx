@@ -137,23 +137,11 @@ export default function Contact() {
                   height="100%"
                   frameBorder="0"
                   scrolling="no"
-                  src="https://apis.map.qq.com/ws/staticmap/v2/?center=30.289547,120.034789&zoom=15&size=600*300&maptype=roadmap&markers=size:large|color:red|label:K|30.289547,120.034789&key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77"
+                  src="https://map.baidu.com/@13369459,3724887,17z"
                   style={{ border: 0 }}
                   loading="lazy"
+                  allowFullScreen
                 />
-                <a 
-                  href="https://uri.amap.com/marker?position=120.034789,30.289547&name=华立总部大楼&coordinate=gaode"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="absolute inset-0 flex items-center justify-center"
-                >
-                  <div className="text-center">
-                    <p className="text-sm font-medium text-gray-900 drop-shadow-lg mb-1">{language === 'zh' ? '杭州市余杭区五常大道181号' : '181 Wuchang Avenue, Yuhang District'}</p>
-                    <p className="text-xs text-gray-700 drop-shadow mb-2">{language === 'zh' ? '华立总部大楼东910室' : 'Room 910, East Building, Huali Headquarters'}</p>
-                    <MapPin className="w-10 h-10 text-blue-600 mx-auto drop-shadow-lg" />
-                    <p className="text-sm font-semibold text-blue-600 drop-shadow mt-1">{language === 'zh' ? '导航' : 'Navigate'}</p>
-                  </div>
-                </a>
               </div>
             </div>
 
