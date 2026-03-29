@@ -129,15 +129,19 @@ export default function Contact() {
                 })}
               </div>
 
-              {/* Map Placeholder */}
+              {/* Map */}
               <div className="aspect-video bg-gray-100 rounded-2xl overflow-hidden">
-                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-50 to-cyan-50">
-                  <div className="text-center">
-                    <MapPin className="w-12 h-12 text-blue-600 mx-auto mb-2" />
-                    <p className="text-gray-600">{language === 'zh' ? '杭州市余杭区五常大道181号' : 'Hangzhou Yuhang District'}</p>
-                    <p className="text-gray-600">{language === 'zh' ? '华立总部大楼东910室' : 'Huali Headquarters, Room 910'}</p>
-                  </div>
-                </div>
+                <iframe
+                  title="公司地址地图"
+                  width="100%"
+                  height="100%"
+                  frameBorder="0"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=120.030,30.285,120.040,30.295&layer=mapnik&marker=30.289547,120.034789"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                />
               </div>
             </div>
 
