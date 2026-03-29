@@ -137,7 +137,7 @@ export default function Contact() {
                   height="100%"
                   frameBorder="0"
                   scrolling="no"
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=120.028,30.286,120.042,30.294&layer=mapnik&marker=30.289547,120.034789"
+                  src="https://apis.map.qq.com/uri/v2/marker?marker=coord:30.289547,120.034789;title:华立总部大楼;addr:杭州市余杭区五常大道181号东910室&referer=keeshield"
                   style={{ border: 0 }}
                   loading="lazy"
                 />
