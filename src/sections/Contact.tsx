@@ -138,7 +138,7 @@ export default function Contact() {
                   className="block w-full h-full"
                 >
                   <img 
-                    src="https://restapi.amap.com/v3/staticmap?location=120.034789,30.289547&zoom=15&size=750*300&markers=mid,,A:120.034789,30.289547&key=26b9015da88e689997cfa4db8374a7b1"
+                    src="https://apis.map.qq.com/ws/staticmap/v2/?center=30.289547,120.034789&zoom=15&size=600*300&maptype=roadmap&markers=size:large|color:red|label:K|30.289547,120.034789&key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77"
                     alt="公司地址地图"
                     className="w-full h-full object-cover"
                     loading="lazy"
