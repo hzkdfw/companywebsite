@@ -145,8 +145,8 @@ export default function Contact() {
                   />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-center">
-                      <p className="text-sm font-medium text-gray-900 drop-shadow-lg mb-1">{language === 'zh' ? '杭州市余杭区五常大道181号' : '181 Wuchang Avenue, Yuhang District'}</p>
-                      <p className="text-xs text-gray-700 drop-shadow mb-2">{language === 'zh' ? '华立总部大楼东910室' : 'Room 910, East Building, Huali Headquarters'}</p>
+                      <p className="text-sm font-medium text-blue-600 drop-shadow-lg mb-1">{language === 'zh' ? '杭州市余杭区五常大道181号' : '181 Wuchang Avenue, Yuhang District'}</p>
+                      <p className="text-xs text-blue-600 drop-shadow mb-2">{language === 'zh' ? '华立总部大楼东910室' : 'Room 910, East Building, Huali Headquarters'}</p>
                       <MapPin className="w-10 h-10 text-blue-600 mx-auto drop-shadow-lg" />
                       <p className="text-sm font-semibold text-blue-600 drop-shadow mt-1">{language === 'zh' ? '点击导航' : 'Click to navigate'}</p>
                     </div>
