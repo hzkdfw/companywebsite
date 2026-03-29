@@ -141,18 +141,17 @@ export default function Contact() {
                   style={{ border: 0 }}
                   loading="lazy"
                 />
-                {/* 地址信息叠加层 - 居中 */}
                 <a 
                   href="https://uri.amap.com/marker?position=120.034789,30.289547&name=华立总部大楼&coordinate=gaode"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="absolute inset-0 flex items-center justify-center"
                 >
-                  <div className="text-center bg-white/95 backdrop-blur-sm rounded-xl px-5 py-4 shadow-lg">
-                    <p className="text-sm font-medium text-gray-900 mb-1">{language === 'zh' ? '杭州市余杭区五常大道181号' : '181 Wuchang Avenue, Yuhang District'}</p>
-                    <p className="text-xs text-gray-500 mb-3">{language === 'zh' ? '华立总部大楼东910室' : 'Room 910, East Building, Huali Headquarters'}</p>
-                    <MapPin className="w-8 h-8 text-blue-600 mx-auto" />
-                    <p className="text-sm font-semibold text-blue-600 mt-2">{language === 'zh' ? '导航' : 'Navigate'}</p>
+                  <div className="text-center">
+                    <p className="text-sm font-medium text-gray-900 drop-shadow-lg mb-1">{language === 'zh' ? '杭州市余杭区五常大道181号' : '181 Wuchang Avenue, Yuhang District'}</p>
+                    <p className="text-xs text-gray-700 drop-shadow mb-2">{language === 'zh' ? '华立总部大楼东910室' : 'Room 910, East Building, Huali Headquarters'}</p>
+                    <MapPin className="w-10 h-10 text-blue-600 mx-auto drop-shadow-lg" />
+                    <p className="text-sm font-semibold text-blue-600 drop-shadow mt-1">{language === 'zh' ? '导航' : 'Navigate'}</p>
                   </div>
                 </a>
               </div>
