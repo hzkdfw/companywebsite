@@ -131,16 +131,27 @@ export default function Contact() {
 
               {/* Map */}
               <div className="aspect-video bg-gray-100 rounded-2xl overflow-hidden relative">
-                <iframe
-                  title="公司地址地图"
-                  width="100%"
-                  height="100%"
-                  frameBorder="0"
-                  scrolling="no"
-                  src="https://apis.map.qq.com/uri/v2/marker?marker=coord:30.289547,120.034789;title:华立总部大楼;addr:杭州市余杭区五常大道181号东910室&referer=keeshield"
-                  style={{ border: 0 }}
-                  loading="lazy"
-                />
+                <a 
+                  href="https://uri.amap.com/marker?position=120.034789,30.289547&name=华立总部大楼&coordinate=gaode"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full h-full"
+                >
+                  <img 
+                    src="https://restapi.amap.com/v3/staticmap?location=120.034789,30.289547&zoom=15&size=750*300&markers=mid,,A:120.034789,30.289547&key=26b9015da88e689997cfa4db8374a7b1"
+                    alt="公司地址地图"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center">
+                      <p className="text-sm font-medium text-gray-900 drop-shadow-lg mb-1">{language === 'zh' ? '杭州市余杭区五常大道181号' : '181 Wuchang Avenue, Yuhang District'}</p>
+                      <p className="text-xs text-gray-700 drop-shadow mb-2">{language === 'zh' ? '华立总部大楼东910室' : 'Room 910, East Building, Huali Headquarters'}</p>
+                      <MapPin className="w-10 h-10 text-blue-600 mx-auto drop-shadow-lg" />
+                      <p className="text-sm font-semibold text-blue-600 drop-shadow mt-1">{language === 'zh' ? '点击导航' : 'Click to navigate'}</p>
+                    </div>
+                  </div>
+                </a>
               </div>
             </div>
 
