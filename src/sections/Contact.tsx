@@ -137,10 +137,9 @@ export default function Contact() {
                   height="100%"
                   frameBorder="0"
                   scrolling="no"
-                  src="https://map.baidu.com/@13369459,3724887,17z"
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=120.028,30.286,120.042,30.294&layer=mapnik&marker=30.289547,120.034789"
                   style={{ border: 0 }}
                   loading="lazy"
-                  allowFullScreen
                 />
               </div>
             </div>
